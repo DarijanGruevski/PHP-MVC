@@ -1,0 +1,17 @@
+CREATE TABLE `company` (
+ `ID` int NOT NULL AUTO_INCREMENT,
+ `Name` varchar(50) NOT NULL,
+ `Country` varchar(50) NOT NULL,
+ PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+ CREATE TABLE `flight` (
+ `FlightID` int NOT NULL AUTO_INCREMENT,
+ `Origin` varchar(50) NOT NULL,
+ `Destination` varchar(50) NOT NULL,
+ `companyID` int NOT NULL,
+ PRIMARY KEY (`FlightID`),
+ KEY `companyID` (`companyID`),
+ CONSTRAINT `companyID` FOREIGN KEY (`companyID`) REFERENCES `company` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
